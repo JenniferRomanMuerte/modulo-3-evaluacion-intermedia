@@ -6,7 +6,6 @@ import CountryList from "./CountryList";
 import Filters from "./Filters";
 import AddCountry from "./AddCountry";
 
-
 const initialCountries = [
   {
     name: {
@@ -320,39 +319,45 @@ const initialCountries = [
 
 function App() {
   const [countries, setCountries] = useState(initialCountries);
-  const [searchName, setSearchName] = useState("");
+  const [searchInput, setSearchInput] = useState({
+    nameInput: "",
+    regionInput: "",
+  });
   const [searchRegion, setSearchRegion] = useState("");
 
-  const UpdateSearchName = (value) => {
-    setSearchName(value);
+  const UpdateSearchInput = (input) => {
+    setSearchInput(input);
   };
-  const UpdateSearchRegion = (value) => {
-    setSearchRegion(value);
-  };
+
   const UpdateCountries = (country) => {
     setCountries([...countries, country]);
   };
 
-  const DeleteCountry = (index) =>{
-    setCountries(
-  countries.filter((country, i) => i !== index)
-);
+  // Filter crea un array nuevo con los elementos que cumplan la condición.
+  // En este caso, nos quedamos con todos los países cuyo índice (i) sea distinto
+  // del índice recibido (index), que es el país que queremos eliminar.
+  // Finalmente, reemplazamos el estado de countries con este nuevo array,
+  // sin mutar el original (React necesita un array nuevo para poder rerenderizar).
 
-  }
+  const DeleteCountry = (index) => {
+    setCountries(countries.filter((country, i) => i !== index));
+  };
 
   return (
     <>
       <Header />
       <main>
         <Filters
-          UpdateSearchText = {UpdateSearchName}
-          UpdateSearchRegion = {UpdateSearchRegion}
-          countries = {countries}
+          searchInput = {searchInput}
+          UpdateSearchInput={UpdateSearchInput}
+          countries={countries}
         />
-        <AddCountry
-          UpdateCountries = {UpdateCountries}
+        <AddCountry UpdateCountries={UpdateCountries} />
+        <CountryList
+          countries={countries}
+          searchInput={searchInput}
+          DeleteCountry={DeleteCountry}
         />
-        <CountryList countries={countries} searchName={searchName} searchRegion = {searchRegion}  DeleteCountry = {DeleteCountry}/>
       </main>
     </>
   );

@@ -1,14 +1,14 @@
 import CountryItem from "./CountryItem";
 import "../styles/CountryList.scss";
-const CountryList = ({ countries, searchName, searchRegion, DeleteCountry}) => {
+const CountryList = ({ countries, searchInput, DeleteCountry}) => {
   const renderCountries = () => {
     return(
     countries
       .filter((country) =>
-        country.name.common.toLowerCase().includes(searchName.toLowerCase())
+        country.name.common.toLowerCase().includes(searchInput.nameInput.toLowerCase())
       )
       .filter((country) =>
-        country.region.toLowerCase().includes(searchRegion.toLowerCase())
+        country.region.toLowerCase().includes(searchInput.regionInput.toLowerCase())
       )
       .map((countryItem, index) => {
         return (
@@ -19,7 +19,7 @@ const CountryList = ({ countries, searchName, searchRegion, DeleteCountry}) => {
             name={countryItem.name.common}
             capital={countryItem.capital}
             region={countryItem.region}
-             DeleteCountry = {DeleteCountry}
+            DeleteCountry = {DeleteCountry}
           />
         );
       }));

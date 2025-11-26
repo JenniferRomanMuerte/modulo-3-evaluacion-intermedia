@@ -1,11 +1,15 @@
 import "../styles/Filters.scss";
 
-const Filters = ({ UpdateSearchText, UpdateSearchRegion, countries }) => {
+const Filters = ({ searchInput, UpdateSearchInput, countries }) => {
   const handleName = (ev) => {
-    UpdateSearchText(ev.target.value);
+    UpdateSearchInput({...searchInput,
+    nameInput: ev.target.value
+  });
   };
   const handleRegion = (ev) => {
-    UpdateSearchRegion(ev.target.value);
+     UpdateSearchInput({...searchInput,
+    regionInput: ev.target.value
+  });
   };
 
   return (
