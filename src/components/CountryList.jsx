@@ -1,11 +1,14 @@
 import CountryItem from "./CountryItem";
 import "../styles/CountryList.scss";
-const CountryList = ({ countries, searchText}) => {
+const CountryList = ({ countries, searchName, searchRegion}) => {
   const renderCountries = () => {
     return(
     countries
       .filter((country) =>
-        country.name.common.toLowerCase().includes(searchText.toLowerCase())
+        country.name.common.toLowerCase().includes(searchName.toLowerCase())
+      )
+      .filter((country) =>
+        country.region.toLowerCase().includes(searchRegion.toLowerCase())
       )
       .map((countryItem, index) => {
         return (

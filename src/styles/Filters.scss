@@ -1,0 +1,15 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+  padding:2rem;
+  &__filter{
+    display: flex;
+    gap: 1rem;
+    
+    & label{
+      font-size: 1.5rem;
+    }
+  }
+}

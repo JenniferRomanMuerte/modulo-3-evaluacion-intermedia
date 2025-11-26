@@ -318,20 +318,27 @@ const initialCountries = [
 
 function App() {
   const [countries, setCountries] = useState(initialCountries);
-  const [searchText, setSearchText] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [searchRegion, setSearchRegion] = useState("");
 
-  const UpdateSearchText = (value) => {
-    setSearchText(value);
+  const UpdateSearchName = (value) => {
+    setSearchName(value);
   };
+  const UpdateSearchRegion = (value) => {
+    setSearchRegion(value);
+  };
+
 
   return (
     <>
       <Header />
       <main>
         <Filters
-          UpdateSearchText = {UpdateSearchText}
+          UpdateSearchText = {UpdateSearchName}
+          UpdateSearchRegion = {UpdateSearchRegion}
+          countries = {countries}
         />
-        <CountryList countries={countries} searchText={searchText} />
+        <CountryList countries={countries} searchName={searchName} searchRegion = {searchRegion}/>
       </main>
     </>
   );
