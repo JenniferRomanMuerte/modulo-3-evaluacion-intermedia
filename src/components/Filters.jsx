@@ -12,12 +12,13 @@ const Filters = ({ UpdateSearchText, UpdateSearchRegion, countries }) => {
     <form className="form">
       <h2 className="form__title">Filtros</h2>
       <div className="form__filter">
-        <label htmlFor="name">Por país:</label>
-        <input type="text" name="name" id="name" onInput={handleName} />
+        <label className="form__filter--label" htmlFor="name">Por país:</label>
+        <input className="form__filter--input" type="text" name="name" id="name" placeholder="Ejemplo: Australia..." onInput={handleName} />
       </div>
       <div className="form__filter">
-      <label htmlFor="region">Por Contiente:</label>
+      <label className="form__filter--label" htmlFor="region">Por Contiente:</label>
         <select
+         className="form__filter--input"
         id="region"
         name="region"
         defaultValue=""

@@ -1,8 +1,10 @@
+@use "../styles/core/variables" as var;
+
 .header{
   text-align: center;
   padding: 2rem;
-  background-color: #5d8a67;
-  color: white;
+  background-color: var.$color-prymary;
+  color: var.$color-secondary;
   box-shadow: 0 5px 20px black;
   &__title{
     font-size: 3rem;
