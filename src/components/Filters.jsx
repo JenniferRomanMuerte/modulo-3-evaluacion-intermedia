@@ -29,7 +29,6 @@ const Filters = ({ UpdateSearchText, UpdateSearchRegion, countries }) => {
           </option>
           {[...new Set(countries.map((c) => c.region))].map(
             (country, index) => {
-              console.log(country);
               return (
                 <option key={index} value={country}>
                   {country}

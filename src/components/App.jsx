@@ -4,6 +4,8 @@ import "../styles/App.scss";
 import Header from "./Header";
 import CountryList from "./CountryList";
 import Filters from "./Filters";
+import AddCountry from "./AddCountry";
+
 
 const initialCountries = [
   {
@@ -327,6 +329,9 @@ function App() {
   const UpdateSearchRegion = (value) => {
     setSearchRegion(value);
   };
+  const UpdateCountries = (country) => {
+    setCountries([...countries, country]);
+  };
 
 
   return (
@@ -337,6 +342,9 @@ function App() {
           UpdateSearchText = {UpdateSearchName}
           UpdateSearchRegion = {UpdateSearchRegion}
           countries = {countries}
+        />
+        <AddCountry
+          UpdateCountries = {UpdateCountries}
         />
         <CountryList countries={countries} searchName={searchName} searchRegion = {searchRegion}/>
       </main>
