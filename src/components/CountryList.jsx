@@ -14,6 +14,7 @@ const CountryList = ({ countries, searchName, searchRegion}) => {
         return (
           <CountryItem
             key={index}
+            id={index}
             flag={countryItem.flag}
             name={countryItem.name.common}
             capital={countryItem.capital}
