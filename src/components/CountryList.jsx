@@ -1,6 +1,6 @@
 import CountryItem from "./CountryItem";
 import "../styles/CountryList.scss";
-const CountryList = ({ countries, searchName, searchRegion}) => {
+const CountryList = ({ countries, searchName, searchRegion, DeleteCountry}) => {
   const renderCountries = () => {
     return(
     countries
@@ -19,6 +19,7 @@ const CountryList = ({ countries, searchName, searchRegion}) => {
             name={countryItem.name.common}
             capital={countryItem.capital}
             region={countryItem.region}
+             DeleteCountry = {DeleteCountry}
           />
         );
       }));

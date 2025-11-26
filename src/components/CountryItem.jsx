@@ -1,7 +1,10 @@
 import "../styles/CountryList.scss";
 
-const CountryItem = ({id,flag,name,capital,region}) => {
+const CountryItem = ({id,flag,name,capital,region, DeleteCountry}) => {
 
+  const handleDelete = (ev) =>{
+    DeleteCountry(id);
+  }
 
 
   return (
@@ -10,7 +13,8 @@ const CountryItem = ({id,flag,name,capital,region}) => {
       <h3 className="list__item--name">{name}</h3>
       <span className="list__item--span">{capital}</span>
       <span className="list__item--span">{region}</span>
-      <button className="list__item--button">Eliminar</button>
+      <button className="list__item--button"
+      onClick={handleDelete}>Eliminar</button>
     </li>
   );
 };

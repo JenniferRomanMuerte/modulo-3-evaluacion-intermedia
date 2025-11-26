@@ -333,6 +333,12 @@ function App() {
     setCountries([...countries, country]);
   };
 
+  const DeleteCountry = (index) =>{
+    setCountries(
+  countries.filter((country, i) => i !== index)
+);
+
+  }
 
   return (
     <>
@@ -346,7 +352,7 @@ function App() {
         <AddCountry
           UpdateCountries = {UpdateCountries}
         />
-        <CountryList countries={countries} searchName={searchName} searchRegion = {searchRegion}/>
+        <CountryList countries={countries} searchName={searchName} searchRegion = {searchRegion}  DeleteCountry = {DeleteCountry}/>
       </main>
     </>
   );
